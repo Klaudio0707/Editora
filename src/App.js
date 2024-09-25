@@ -1,5 +1,5 @@
-import Topo  from "./components/Topo";
-import Logo from "./components/logo";
+import Topo from "./components/Topo";
+import Logo from "./components/Logo";
 import Principal from "./components/principal";
 import Rodape from "./components/Rodape";
 import Navegacao from "./components/Navegacao";
@@ -7,13 +7,13 @@ import Navegacao from "./components/Navegacao";
 import { React } from "react";
 
 
-const App = () =>  {
-  return(
-<>
-    <Logo />;
-    <Navegacao/>
+const App = () => {
+  return (
+    <>
+      <Logo />
+      <Navegacao />
     </>
-  ); 
+  );
 
 }
 
