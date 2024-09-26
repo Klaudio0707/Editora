@@ -1,17 +1,14 @@
 import Topo from "./components/Topo";
-import Logo from "./components/Logo";
-import Principal from "./components/principal";
-import Rodape from "./components/Rodape";
-import Navegacao from "./components/Navegacao";
-
+import Principal from "./components/Principal";
+// import Rodape from "./components/Rodape";
 import { React } from "react";
 
 
 const App = () => {
   return (
     <>
-      <Logo />
-      <Navegacao />
+<Topo />
+<Principal />
     </>
   );
 

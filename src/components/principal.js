@@ -1,10 +1,12 @@
-function principal() {
+import React from "react";
+import Home from "./Home";
+
+const Principal = () => {
     return ( 
           <main className="principal">
-        <h2>Últimos Lançamentos</h2>
-        <div className="card">Card</div>
+        <Home />
       </main>
      );
 }
 
-export default principal;
+export default Principal;

@@ -1,8 +1,9 @@
-import { React, useLayoutEffect } from "react";
+import { React} from "react";
 
 function Navegacao() {
     return ( 
     <ul>
+     
 <li><a href="#">Home</a></li>
 <li><a href="#">Frontend</a></li>
 <li><a href="#">Programação</a></li>
