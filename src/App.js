@@ -1,6 +1,6 @@
 import Topo from "./components/Topo";
 import Principal from "./components/Principal";
-// import Rodape from "./components/Rodape";
+import Rodape from "./components/Rodape";
 import { React } from "react";
 
 
@@ -9,6 +9,7 @@ const App = () => {
     <>
 <Topo />
 <Principal />
+< Rodape />
     </>
   );
 
