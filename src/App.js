@@ -9,25 +9,31 @@ import Catalogo from "./components/Catalogo";
 import NotFound from "./components/NotFound";
 import Rodape from "./components/Rodape";
 import "./index.css";
+import Livro from "./component/Livro";
+import axios from "axios";
+
+
 
 class App extends Component {
-  //Utiliza o element para renderizar 
-  render() {
-    return (
-      <Router>
-        <Topo />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/frontend" element={<Frontend />} />
-          <Route path="/programacao" element={<Programacao />} />
-          <Route path="/design" element={<Design />} />
-          <Route path="/catalogo" element={<Catalogo />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-        <Rodape />
-      </Router>
-    );
+  state = {
+    livro: []
+  };
+  async componentDidMount() {
+    try {
+      const { data: livros } = await axios.get("/api/todosOsLivros.json");
+      this.setState({ livros });
+    } catch (error) {
+      console.log(error);
+      document.querySelectorAll(".principal")[0]
+        .insertAdjacentHTML(
+          "beforeend",
+          "<p class='erro'>Mensagem de Erro </p>"
+        );
+
+    }
+
   }
 }
+
 
 export default App;
