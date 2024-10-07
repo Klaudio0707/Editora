@@ -1,17 +1,14 @@
 import React from "react";
- import Logo from "./Logo"; //importação para usar no Topo
+import Logo from "./Logo";
 import Navegacao from "./Navegacao";
 
 const Topo = () => {
-    return (
-        <header className="topo">
-
-            <Logo />
-            <Navegacao />
-        </header>
-    );
-
-
-}
+  return (
+    <header className="topo">
+      <Logo />
+      <Navegacao />
+    </header>
+  );
+};
 
 export default Topo;
