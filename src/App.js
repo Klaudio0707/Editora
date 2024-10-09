@@ -8,32 +8,50 @@ import Design from "./components/Design";
 import Catalogo from "./components/Catalogo";
 import NotFound from "./components/NotFound";
 import Rodape from "./components/Rodape";
-import "./index.css";
-import Livro from "./component/Livro";
+import Livro from "./components/Livro";
 import axios from "axios";
-
-
+import "./index.css";
 
 class App extends Component {
   state = {
-    livro: []
+    livros: []
   };
+
   async componentDidMount() {
     try {
       const { data: livros } = await axios.get("/api/todosOsLivros.json");
       this.setState({ livros });
     } catch (error) {
       console.log(error);
-      document.querySelectorAll(".principal")[0]
+      document
+        .querySelectorAll(".principal")[0]
         .insertAdjacentHTML(
           "beforeend",
           "<p class='erro'>Mensagem de Erro </p>"
         );
-
     }
+  }
 
+  render() {
+    return (
+      <Router>
+        <Topo />
+        <Routes>
+          <Route path="/" element={<Home livros={this.state.livros} />} />
+          <Route path="/frontend" element={<Frontend livros={this.state.livros} />} />
+          <Route path="/programacao" element={<Programacao livros={this.state.livros} />} />
+          <Route path="/design" element={<Design livros={this.state.livros} />} />
+          <Route path="/catalogo" element={<Catalogo livros={this.state.livros} />} />
+          <Route
+            path="/livro/:livroSlug"
+            element={<Livro livros={this.state.livros} />}
+          />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        <Rodape />
+      </Router>
+    );
   }
 }
-
 
 export default App;
