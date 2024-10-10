@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
   {/* // objeto livros é passado como um props dentro do componente home */}
 const Home = ({ livros }) => ( 
   
-
   <main className="principal">
     <h2>Último lançamentos</h2>
     {livros
@@ -24,7 +23,7 @@ const Home = ({ livros }) => (
                   <div className="detalhes">
                     <h3>{livro.titulo}</h3>
                     <p>{livro.descricao.slice(0, 130) + "..."}</p>
-                    <p>Leoa masi &gt;</p>
+                    <p>Leia Mais &gt; </p>
                   </div>
                 }
               </Link>
