@@ -9,7 +9,7 @@ import Catalogo from "./components/Catalogo";
 import NotFound from "./components/NotFound";
 import Rodape from "./components/Rodape";
 import Livro from "./components/Livro";
-
+import axios from "axios";
 import "./index.css";
 
 class App extends Component {
@@ -17,22 +17,22 @@ class App extends Component {
     livros: []
   };
 
- componentDidMount() {
- fetch("/api/todosOsLivros.json")
- .then(response => response.json())
- .then(livros => this.setState({ livros }))
- .catch(function(erro){
-  document
-.querySelectorAll("main")[0]
-.insertAdjacentHTML("beforeend", "<p class='alerta'>Mensagem de Erro</p>");
- })
-.finally(function(){
-console.log("Sempre Retorna");
+  async componentDidMount() {
+    try {
+      const { data: livros } = await axios.get("/api/todosOsLivros.json");
+      this.setState({ livros });
+    } catch (error) {
+      console.log(error);
+      document
+        .querySelectorAll(".principal")[0]
+        .insertAdjacentHTML(
+          "beforeend",
+          "<p class='erro'>Mensagem de Erro </p>"
+        );
+    }
+  }
 
-});
- }
   render() {
-
     return (
       <Router>
         <Topo />
